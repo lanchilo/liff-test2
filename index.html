@@ -70,7 +70,11 @@
 
   <br>
 
-  <button id="sendMessage">Send Test Message</button>
+  <button id="sendMessage">嵐綺</button>
+
+  <button id="sendMessage2">雲朝</button>
+
+  <button id="sendMessage3">小周</button>
 
   <br>
 
@@ -95,7 +99,11 @@
 
         // Add event listener for manual message sending
 
-        document.getElementById('sendMessage').addEventListener('click', sendMessage);
+        document.getElementById('sendMessage').addEventListener('click', () => sendMessage("嵐綺"));
+
+        document.getElementById('sendMessage').addEventListener('click', () => sendMessage("雲朝"));
+
+        document.getElementById('sendMessage').addEventListener('click', () => sendMessage("小周"));
 
 
 
@@ -119,7 +127,7 @@
 
 
 
-    async function sendMessage() {
+    async function sendMessage(assigneeName) {
 
       try {
 
@@ -131,13 +139,15 @@
 
             type: 'text',
 
-            text: 'This is an auto-sent message from LIFF!',
+            text: 'This is an auto-sent message from LIFF! ' + assigneeName,
 
           }
 
         ]);
 
         console.log('Message sent successfully');
+
+        liff.closeWindow()
 
       } catch (err) {
 
